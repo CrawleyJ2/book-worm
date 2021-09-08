@@ -48,14 +48,9 @@ const SavedBooks = () => {
       </Jumbotron>
       <Container>
         <h2>
-          if (userData.savedBooks) {
-           return (`${userData.savedBooks}`);
-          } else {
-            'You have no saved books!'
-          };
-          {/* {userData.savedBooks.length
+          {userData.savedBooks.length
             ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
-            : 'You have no saved books!'} */}
+            : 'You have no saved books!'}
         </h2>
         <CardColumns>
           {userData.savedBooks.map((book) => {
