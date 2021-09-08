@@ -11,7 +11,7 @@ const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
   const [removeBook] = useMutation(REMOVE_BOOK);
 
-  const userData = data?.me || [];
+  const userData = data?.me || {};
 
   console.log(userData);
 
@@ -48,9 +48,14 @@ const SavedBooks = () => {
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedBooks.length
+          if (userData.savedBooks) {
+           return (`${userData.savedBooks}`);
+          } else {
+            'You have no saved books!'
+          };
+          {/* {userData.savedBooks.length
             ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
-            : 'You have no saved books!'}
+            : 'You have no saved books!'} */}
         </h2>
         <CardColumns>
           {userData.savedBooks.map((book) => {
